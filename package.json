@@ -1,49 +1,46 @@
 {
-  "name": "push-receiver",
-  "version": "2.0.0",
-  "description":
-    "A module to subscribe to GCM/FCM and receive notifications within a node process.",
-  "main": "src/index.js",
-  "scripts": {
-    "start": "node scripts/listen",
-    "register": "node scripts/register",
-    "send": "node scripts/send",
-    "pretty":
-      "prettier-eslint --single-quote --trailing-comma es5 --write \"**/*.js\" \"**/*.json\"",
-    "pretty:check":
-      "prettier-eslint --single-quote --trailing-comma es5 --list-different --log-level silent \"**/*.js\" \"**/*.json\"",
-    "lint": "eslint 'src/**/*.js'",
-    "lint:fix": "eslint 'src/**/*.js' --fix",
-    "test": "jest",
-    "precommit": "lint-staged"
+  "_from": "push-receiver",
+  "_id": "push-receiver@2.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-9mHG/+TPp2BzlrzGlzpfGJYXjiqq0p89DaT7ArNYTp/iMv8atEEOAoR6kiYWZzdC/4IFX8HOlIMv8sfOwJxP0w==",
+  "_location": "/push-receiver",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "push-receiver",
+    "name": "push-receiver",
+    "escapedName": "push-receiver",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
   },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "prettier-eslint --single-quote --trailing-comma es5 --write"
-    ],
-    "*.json": ["prettier-eslint --single-quote --trailing-comma es5 --write"]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/MatthieuLemoine/push-receiver.git"
-  },
-  "keywords": [
-    "push",
-    "service",
-    "fcm",
-    "gcm",
-    "notifications",
-    "node",
-    "electron",
-    "receiver"
+  "_requiredBy": [
+    "#USER",
+    "/"
   ],
-  "author": "MatthieuLemoine",
-  "license": "MIT",
+  "_resolved": "https://registry.npmjs.org/push-receiver/-/push-receiver-2.0.0.tgz",
+  "_shasum": "d6cf9c1ce4c3a8b3f3d63ddc2c519193c6682335",
+  "_spec": "push-receiver",
+  "_where": "C:\\Users\\Andre\\projects\\apps-de-bolso-desktop-oab",
+  "author": {
+    "name": "MatthieuLemoine"
+  },
   "bugs": {
     "url": "https://github.com/MatthieuLemoine/push-receiver/issues"
   },
-  "homepage": "https://github.com/MatthieuLemoine/push-receiver#readme",
+  "bundleDependencies": false,
+  "dependencies": {
+    "http_ece": "^1.0.5",
+    "long": "^4.0.0",
+    "protobufjs": "^6.8.8",
+    "querystring": "^0.2.0",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
+    "uuid": "^3.1.0"
+  },
+  "deprecated": false,
+  "description": "A module to subscribe to GCM/FCM and receive notifications within a node process.",
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "eslint": "^4.4.1",
@@ -57,12 +54,43 @@
     "prettier-eslint-cli": "^4.3.0",
     "yargs": "^10.0.3"
   },
-  "dependencies": {
-    "http_ece": "^1.0.5",
-    "long": "^3.2.0",
-    "protobufjs": "^6.8.0",
-    "request": "^2.81.0",
-    "request-promise": "^4.2.1",
-    "uuid": "^3.1.0"
-  }
+  "homepage": "https://github.com/MatthieuLemoine/push-receiver#readme",
+  "keywords": [
+    "push",
+    "service",
+    "fcm",
+    "gcm",
+    "notifications",
+    "node",
+    "electron",
+    "receiver"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier-eslint --single-quote --trailing-comma es5 --write"
+    ],
+    "*.json": [
+      "prettier-eslint --single-quote --trailing-comma es5 --write"
+    ]
+  },
+  "main": "src/index.js",
+  "name": "push-receiver",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/MatthieuLemoine/push-receiver.git"
+  },
+  "scripts": {
+    "lint": "eslint 'src/**/*.js'",
+    "lint:fix": "eslint 'src/**/*.js' --fix",
+    "precommit": "lint-staged",
+    "pretty": "prettier-eslint --single-quote --trailing-comma es5 --write \"**/*.js\" \"**/*.json\"",
+    "pretty:check": "prettier-eslint --single-quote --trailing-comma es5 --list-different --log-level silent \"**/*.js\" \"**/*.json\"",
+    "register": "node scripts/register",
+    "send": "node scripts/send",
+    "start": "node scripts/listen",
+    "test": "jest"
+  },
+  "version": "2.0.0"
 }

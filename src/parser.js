@@ -1,17 +1,16 @@
 const EventEmitter = require('events');
-const path = require('path');
-const { load, BufferReader } = require('protobufjs');
+const { BufferReader, Root } = require('protobufjs');
 const {
   MCS_VERSION_TAG_AND_SIZE,
   MCS_TAG_AND_SIZE,
   MCS_SIZE,
   MCS_PROTO_BYTES,
-
+  
   kVersionPacketLen,
   kTagPacketLen,
   kSizePacketLenMin,
   kMCSVersion,
-
+  
   kHeartbeatPingTag,
   kHeartbeatAckTag,
   kLoginRequestTag,
@@ -21,6 +20,8 @@ const {
   kDataMessageStanzaTag,
   kStreamErrorStanzaTag,
 } = require('./constants');
+
+const mss_proto_file = require('./msc.json');
 
 const DEBUG = () => {};
 // uncomment the line below to output debug messages
@@ -38,12 +39,14 @@ let proto = null;
 // - Setting timeouts while waiting for data
 //
 // ref: https://cs.chromium.org/chromium/src/google_apis/gcm/engine/connection_handler_impl.cc?rcl=dc7c41bc0ee5fee0ed269495dde6b8c40df43e40&l=178
+
 module.exports = class Parser extends EventEmitter {
   static async init() {
     if (proto) {
       return;
     }
-    proto = await load(path.resolve(__dirname, 'mcs.proto'));
+    proto = await Root.fromJSON(mss_proto_file);
+    // proto = await load(path.resolve(__dirname, 'mcs.proto'));
   }
 
   constructor(socket) {

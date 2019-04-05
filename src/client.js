@@ -2,8 +2,8 @@ const EventEmitter = require('events');
 const Long = require('long');
 const Parser = require('./parser');
 const decrypt = require('./utils/decrypt');
-const path = require('path');
 const tls = require('tls');
+const { load, Root } = require('protobufjs');
 const { checkIn } = require('./gcm');
 const {
   kMCSVersion,
@@ -11,8 +11,7 @@ const {
   kDataMessageStanzaTag,
   kLoginResponseTag,
 } = require('./constants');
-const { load } = require('protobufjs');
-
+const mss_proto_file = require('./msc.json');
 const HOST = 'mtalk.google.com';
 const PORT = 5228;
 const MAX_RETRY_TIMEOUT = 15;
@@ -24,7 +23,8 @@ module.exports = class Client extends EventEmitter {
     if (proto) {
       return;
     }
-    proto = await load(path.resolve(__dirname, 'mcs.proto'));
+    proto = await Root.fromJSON(mss_proto_file);
+    // proto = await load(path.resolve(__dirname, 'mcs.proto'));
   }
 
   constructor(credentials, persistentIds) {
